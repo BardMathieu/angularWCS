@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { EmailValidator } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
