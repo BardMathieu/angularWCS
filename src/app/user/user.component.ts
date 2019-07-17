@@ -6,23 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  User = {
-    name : 'Doe',
-    firstName : 'John',
-    age : 25,
-    quote : '',
-    photo : 'https://randomuser.me/api/portraits/lego/2.jpg'
-  };
-  Isvisible = true;
+  YourName = 'Mathieu';
   constructor() { }
 
   ngOnInit() {
-  }
-  changehide() {
-    if (this.Isvisible === true){
-      this.Isvisible = false;
-    } else {
-      this.Isvisible = true;
-    }
   }
 }

@@ -7,7 +7,6 @@ import { EmailValidator } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  YourName = 'Mathieu';
   showMovies = false;
 
   changeShowMovies() {
