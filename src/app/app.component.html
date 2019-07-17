@@ -1,18 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <app-user></app-user>
-    </div>
-  </div>
-  <ul>
-    <li>
-      <a [routerLink]="['/signup']">Sign-Up</a>
-    </li>
-    <li>
-      <a [routerLink]="['/user']">User-profile</a>
-    </li>
-  </ul>
+  <menu>
+    <a [routerLink]="['/sign-up']">Sign-Up</a>
+    <a [routerLink]="['/user-profile']">User-profile</a>
+  </menu>
   <div class="container">
     <ul *appDisplayGuests="showMovies">
       <li appHighlight>The Godfather</li>
