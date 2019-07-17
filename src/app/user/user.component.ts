@@ -24,6 +24,5 @@ export class UserComponent implements OnInit {
     } else {
       this.Isvisible = true;
     }
-
   }
 }

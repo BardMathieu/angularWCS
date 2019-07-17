@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { FormsModule } from '@angular/forms';
 import { UserComponent } from './user/user.component';
+import { HighlightDirective } from './highlight.directive';
+import { DisplayGuestsDirective } from './display-guests.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignUpComponent,
-    UserComponent
+    UserComponent,
+    HighlightDirective,
+    DisplayGuestsDirective
   ],
   imports: [
     BrowserModule,

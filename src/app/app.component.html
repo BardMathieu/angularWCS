@@ -10,6 +10,13 @@
   <div class="container">
     <app-sign-up></app-sign-up>
     <app-user></app-user>
+    <ul *appDisplayGuests="showMovies">
+      <li appHighlight>The Godfather</li>
+      <li>The Shawshank Redemption</li>
+      <li>Gone With the Wind</li>
+      <li>Casablanca</li>
+    </ul>
+    <a class="btn btn-danger text-white" (click)="changeShowMovies()">Afficher/Masquer les films</a>
   </div>
 </div>
 <router-outlet></router-outlet>
