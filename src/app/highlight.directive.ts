@@ -11,10 +11,10 @@ export class HighlightDirective implements OnInit{
   ngOnInit(): void {
     // this.renderer.setStyle(this.elRef.nativeElement, 'background-color', 'yellow');
   }
-  @HostListener('mouseenter') mouseEnterEvent (eventData: Event) {
+  @HostListener('mouseenter') mouseEnterEvent(eventData: Event) {
     this.myBackgroundColor = 'yellow';
   }
-  @HostListener('mouseleave') mouseLeaveEvent (eventData: Event) {
+  @HostListener('mouseleave') mouseLeaveEvent(eventData: Event) {
     this.myBackgroundColor = 'transparent';
   }
 }

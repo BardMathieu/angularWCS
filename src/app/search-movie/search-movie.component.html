@@ -1,0 +1,81 @@
+
+<button class="btn btn-primary ml-3" (click)="changeShowMovies()">Click to see movies list</button>
+<ul class="ml-3" *appDisplayGuests= "showMovies">
+  <li>The fifth element</li>
+  <li>Matrix</li>
+  <li>Remember the titans</li>
+  <li>Rocky II</li>
+</ul>
+
+<form class="mt-5" (ngSubmit)="searchMovieForm.valid && onSubmit()" [formGroup]="searchMovieForm" #movieForm="ngForm">
+  <div class="form-group w-50 d-flex flex-column m-auto">
+    <div formGroupName="login">
+      <label for="identify-search">Identifiant</label>
+
+      <input
+        class="form-control"
+        [ngClass]="{error: movieForm.submitted && searchMovieForm.controls.login.errors}"
+        name="identify-search"
+        type="text"
+        formControlName="identify"
+        (input)="enableSheet()"> <!--Function for change sheet's select status-->
+
+      <label for="title-search">Titre</label>
+
+      <input
+        class="form-control"
+        [ngClass]="{error: movieForm.submitted && searchMovieForm.controls.login.errors}"
+        name="title-search"
+        type="text"
+        formControlName="title">
+
+
+      <div class="text-danger" *ngIf="movieForm.submitted && searchMovieForm.controls.login.errors">
+        <span>{{searchMovieForm.controls.login.errors.isRequired}}</span>
+      </div>
+    </div>
+
+    <label for="types-search">Type</label>
+
+    <select
+      name="types-search"
+      type="text"
+      formControlName="types">
+
+      <option>Film</option>
+
+      <option>Série</option>
+
+      <option>Épisode</option>
+    </select>
+
+    <label for="releaseYear-search">Année de sortie</label>
+
+    <input
+      [ngClass]="{error: movieForm.submitted && searchMovieForm.controls.login.errors}"
+      name="releaseYear-search"
+      type="number"
+      formControlName="releaseYear">
+
+    <div class="text-danger" *ngIf="movieForm.submitted && searchMovieForm.controls.releaseYear.errors">
+        <span>L'année doit être comprise entre {{ searchMovieForm.controls.releaseYear.errors.min.minYear }}
+          et {{ searchMovieForm.controls.releaseYear.errors.min.maxYear }} </span>
+    </div>
+
+    <label for="sheet-search">Fiche</label>
+
+    <select
+      name="sheet-search"
+      type="text"
+      formControlName="sheet">
+
+      <option>Complète</option>
+
+      <option>Courte</option>
+    </select>
+
+    <button class="btn btn-danger mt-2 mr-auto mb-2 ml-auto w-25" type="reset">Restaurer</button>
+
+    <button class="btn btn-primary mt-2 mr-auto mb-2 ml-auto w-25" type="submit">Sauvegarder</button>
+  </div>
+</form>

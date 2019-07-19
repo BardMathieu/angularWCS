@@ -5,25 +5,48 @@
   </div>
 </div>
 <div class="container my-5">
-  <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+  <form (ngSubmit)="orderForm.valid && onSubmit()" [formGroup]="orderForm" #myForm="ngForm">
     <div>
-      <label for="User">User</label>
-      <input name="User" type="text" [(ngModel)]="model.user" #user="ngModel" minlength="4" maxlength="25" required>
+      <label for="title-order">Title</label>
+      <input name="title-order" type="text" formControlName="title">
     </div>
-    <div *ngIf="user.errors && myForm.submitted ">
-      <span *ngIf="user.errors.required">Le champ est requis</span>
-      <span *ngIf="user.errors.minlength">Le champ user ne doit pas dépasser 4 caractères</span>
-      <span *ngIf="user.errors.maxlength">Le champ user ne doit pas dépasser 25 caractères</span>
+    <div *ngIf="orderForm.controls.title.errors && myForm.submitted">
+      <span *ngIf="orderForm.controls.title.errors.required">Le champ title est requis</span>
     </div>
     <div>
-      <label for="Email">Email</label>
-      <input name="email" type="email" [(ngModel)]="model.email" #email="ngModel" email="true" required>
+      <label for="quantity-order">Quantité</label>
+      <input name="quantity-order" type="number" formControlName="quantity">
     </div>
-    <div *ngIf="email.errors && myForm.submitted">
-      <span *ngIf="email.errors.required">Le champ est requis</span>
-      <span *ngIf="email.errors.email">Le champ email est invalide</span>
+    <div *ngIf="orderForm.controls.quantity.errors && myForm.submitted">
+      <span *ngIf="orderForm.controls.quantity.errors.required">Le champ quantité est requis</span>
+      <span *ngIf="orderForm.controls.quantity.errors.max">La quantité maximal doit être inférieur à 5</span>
     </div>
-    <button class="btn btn-info" type="submit">Sauvegarder</button>
+    <div>
+      <label for="date-order">Date de commande</label>
+      <input name="date-order" type="date" formControlName="date">
+    </div>
+    <div *ngIf="orderForm.controls.date.errors && myForm.submitted">
+      <span *ngIf="orderForm.controls.date.errors.required">Le champ quantité est requis</span>
+    </div>
+    <div>
+      <label for="contact-order">Contact</label>
+      <input name="contact-order" type="email" formControlName="contact">
+    </div>
+    <div *ngIf="orderForm.controls.contact.errors && myForm.submitted">
+      <span *ngIf="orderForm.controls.contact.errors.required">Le champ contact est requis</span>
+      <span *ngIf="orderForm.controls.contact.errors.email">L'adresse email doit être valide</span>
+    </div>
+    <div formArrayName="payments">
+      <b>Payments : </b> <button type="button" (click)="addPayment()">Ajouter date paiement</button>
+      <div [formGroupName]="i" *ngFor="let payment of payments.controls; let i=index">
+        <label for="date-{{i}}">Date :</label>
+        <input name="date-{{i}}" type="date" formControlName="date">
+        <label for="amount-{{i}}">Amount :</label>
+        <input name="amount-{{i}}" type="text" formControlName="amount">
+      </div>
+    </div>
+    <button type="reset">Restaurer</button>
+    <button type="submit">Sauvegarder</button>
   </form>
 </div>
 
