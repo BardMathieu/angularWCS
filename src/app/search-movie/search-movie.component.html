@@ -16,6 +16,7 @@
         class="form-control"
         [ngClass]="{error: movieForm.submitted && searchMovieForm.controls.login.errors}"
         name="identify-search"
+        id="identify-search"
         type="text"
         formControlName="identify"
         (input)="enableSheet()"> <!--Function for change sheet's select status-->

@@ -11,6 +11,10 @@ import { DisplayGuestsDirective } from './display-guests.directive';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ROUTES } from './app.routes';
 import { SearchMovieComponent } from './search-movie/search-movie.component';
+import { KitchenComponent } from './kitchen/kitchen.component';
+import { MagicOvenComponent } from './magic-oven/magic-oven.component';
+import { DeveloperComponent } from './developer/developer.component';
+import { SkillComponent } from './skill/skill.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +23,11 @@ import { SearchMovieComponent } from './search-movie/search-movie.component';
     HighlightDirective,
     DisplayGuestsDirective,
     UserProfileComponent,
-    SearchMovieComponent
+    SearchMovieComponent,
+    KitchenComponent,
+    MagicOvenComponent,
+    DeveloperComponent,
+    SkillComponent
   ],
   imports: [
     BrowserModule,
